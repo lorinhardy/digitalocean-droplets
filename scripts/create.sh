@@ -4,7 +4,7 @@ template_dir=_template
 build_template=template.json
 
 exit_err() {
-  usage="Usage: create-1-click.sh <1-click-name> <image-label>"
+  usage="Usage: create-droplet.sh <1-click-name> <image-label>"
 
   echo "$usage" > /dev/stderr
   exit 1

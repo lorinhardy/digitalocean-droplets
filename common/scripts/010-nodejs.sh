@@ -5,7 +5,8 @@
 ##
 ## vi: syntax=sh expandtab ts=4
 
-curl -sSL https://deb.nodesource.com/gpgkey/nodesource.gpg.key | sudo apt-key add -
+# curl -sSL https://deb.nodesource.com/gpgkey/nodesource.gpg.key | sudo apt-key add -
+ curl -sSL https://deb.nodesource.com/gpgkey/nodesource.gpg.key | sudo tee /etc/apt/trusted.gpg.d/nodesource.asc
 
 # Replace with the branch of Node.js or io.js you want to install: node_6.x, node_8.x, etc...
 VERSION=${NODE_VERSION}
@@ -18,7 +19,7 @@ echo "deb https://deb.nodesource.com/$VERSION $DISTRO main" | sudo tee /etc/apt/
 echo "deb-src https://deb.nodesource.com/$VERSION $DISTRO main" | sudo tee -a /etc/apt/sources.list.d/nodesource.list
 
 # Yarn
-curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+curl -sSL https://dl.yarnpkg.com/debian/pubkey.gpg | sudo tee /etc/apt/trusted.gpg.d/yarn.asc
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 
 apt-get -qqy update

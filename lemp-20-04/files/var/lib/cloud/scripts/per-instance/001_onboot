@@ -31,7 +31,7 @@ EOM
 
 myip=$(hostname -I | awk '{print$1}')
 sed -e "s|server_name localhost|servername ${myip}|g" \
-    -i /etc/nginx/sites-available/00-digitalocean
+    -i /etc/nginx/sites-available/server
 
 systemctl restart nginx
 

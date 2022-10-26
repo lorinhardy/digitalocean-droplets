@@ -1,13 +1,13 @@
-.PHONY: buld-% update-scripts validate-%
+.PHONY: build-% update-scripts validate-%
 
 %:
-	./scripts/create-1-click.sh $* $*-20-04
+	./scripts/create.sh $* $*-20-04
 
 build-%:
-	packer build $*/template.json
+	packer build $*/template.pkr.hcl
 
 validate-%:
-	packer validate $*/template.json
+	packer validate $*/template.pkr.hcl
 
 update-scripts:
 	curl -o common/scripts/999-img_check.sh https://raw.githubusercontent.com/digitalocean/marketplace-partners/master/scripts/img_check.sh
